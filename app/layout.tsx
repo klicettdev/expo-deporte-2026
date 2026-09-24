@@ -2,49 +2,35 @@ import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
+const SITE_URL = 'https://expo-deporte-2026.vercel.app'
+
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || 'https://expodeporte2026.vercel.app'
-  ),
+  metadataBase: new URL(SITE_URL),
   title: 'Expo Deporte 2026 | Santiago Mariño',
   description:
-    'Inscríbete en la gran vitrina deportiva de Santiago Mariño. 13, 14 y 15 de noviembre de 2026 en el Estacionamiento Makro RedVital, Turmero. Carrera 10K, Caminata 5K Nocturna, torneos comunales y tarima cultural.',
+    'Inscríbete en la gran vitrina deportiva de Santiago Mariño. 13, 14 y 15 de noviembre de 2026 en el Estacionamiento Makro RedVital, Turmero. Carrera 10K, Caminata 5K Nocturna y torneos comunitarios.',
   applicationName: 'Expo Deporte 2026',
-  authors: [{ name: 'Alcaldía Bolivariana de Santiago Mariño e INADEMAR' }],
-  keywords: [
-    'Expo Deporte 2026',
-    'Carrera 10K Turmero',
-    'Caminata 5K Nocturna',
-    'Santiago Mariño',
-    'INADEMAR',
-    'Aragua Deporte',
-    'Makro RedVital'
-  ],
   icons: {
-    icon: [
-      { url: '/logo.png', type: 'image/png' },
-      { url: '/logo.png', sizes: '32x32', type: 'image/png' },
-      { url: '/logo.png', sizes: '192x192', type: 'image/png' },
-    ],
+    icon: '/logo.png',
     shortcut: '/logo.png',
-    apple: [
-      { url: '/logo.png', sizes: '180x180', type: 'image/png' },
-    ],
+    apple: '/logo.png',
   },
   openGraph: {
     type: 'website',
     locale: 'es_VE',
-    url: '/',
-    siteName: 'Expo Deporte 2026 — Santiago Mariño',
-    title: 'Expo Deporte 2026 | El Deporte Nos Mueve',
+    url: SITE_URL,
+    siteName: 'Expo Deporte 2026',
+    title: 'Expo Deporte 2026 | Santiago Mariño',
     description:
-      'Asegura tu lugar en la Carrera 10K Competitiva o la Caminata 5K Nocturna. Evento arancelado con premiación en metálico y kits oficiales.',
+      'Inscríbete en la gran vitrina deportiva de Santiago Mariño. 13, 14 y 15 de noviembre de 2026. Carrera 10K y Caminata 5K Nocturna.',
     images: [
       {
-        url: '/logo.jpeg',
+        url: `${SITE_URL}/logo.jpeg`,
+        secureUrl: `${SITE_URL}/logo.jpeg`,
         width: 1200,
         height: 630,
-        alt: 'Afiche y Presentación Oficial de Expo Deporte 2026',
+        type: 'image/jpeg',
+        alt: 'Expo Deporte 2026',
       },
     ],
   },
@@ -52,8 +38,8 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Expo Deporte 2026 | Santiago Mariño',
     description:
-      'Inscríbete en la gran vitrina deportiva de Santiago Mariño: Carrera 10K, Caminata 5K Nocturna y 32 horas de actividades comunitarias.',
-    images: ['/logo.jpeg'],
+      'Inscríbete en la gran vitrina deportiva de Santiago Mariño. Carrera 10K y Caminata 5K Nocturna.',
+    images: [`${SITE_URL}/logo.jpeg`],
   },
 }
 
