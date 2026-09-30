@@ -1,39 +1,59 @@
-'use client';
+'use client'
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
 
 export function useBCVRate() {
-  const [rate, setRate] = useState<number>(832.48);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+  const [rate, setRate] = useState<number>(0)
+  const [loading, setLoading] = useState<boolean>(true)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
+    let isMounted = true
+
     async function fetchRate() {
       try {
-        setLoading(true);
-        const res = await fetch('/api/bcv');
-        
+        setLoading(true)
+        setError(null)
+
+        // 1. Intentar primero a la API oficial directa (sin pasar por /api/bcv local)
+        const res = await fetch('https://ve.dolarapi.com/v1/dolares/oficial', {
+          cache: 'no-store',
+        })
+
         if (!res.ok) {
-          throw new Error('Fallo al consultar el endpoint interno');
+          throw new Error('Fallo al consultar la tasa oficial')
         }
-        
-        const data = await res.json();
-        
-        if (typeof data?.tasa === 'number' && data.tasa > 0) {
-          setRate(data.tasa);
-          setError(null);
-        } else {
-          throw new Error('Tasa recibida inválida o en 0');
+
+        const data = await res.json()
+        const valorTasa = Number(data?.promedio ?? data?.venta ?? data?.compra ?? 0)
+
+        if (isMounted) {
+          if (valorTasa > 0) {
+            setRate(valorTasa)
+          } else {
+            throw new Error('Tasa no válida')
+          }
         }
       } catch (err: any) {
-        setError(err?.message || 'Error al obtener la tasa en vivo');
+        console.error('Error obteniendo tasa BCV:', err)
+        if (isMounted) {
+          setError(err.message || 'Error al obtener la tasa')
+          // Fallback de contingencia si no hay internet
+          setRate(857.89)
+        }
       } finally {
-        setLoading(false);
+        if (isMounted) {
+          setLoading(false)
+        }
       }
     }
 
-    fetchRate();
-  }, []);
+    fetchRate()
 
-  return { rate, loading, error };
+    return () => {
+      isMounted = false
+    }
+  }, [])
+
+  return { rate, loading, error }
 }
