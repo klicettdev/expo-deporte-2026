@@ -19,14 +19,20 @@ export function HeroSection({ heroImg }: { heroImg: string }) {
             </div>
 
             <div>
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-[#0C1932] leading-[1.05]">
-                ¡El deporte <br />
-                <span className="text-[#FA8D1E]">nos mueve!</span>
-              </h1>
-              <div className="mt-3 flex items-center gap-1.5">
-                <span className="h-1.5 w-16 rounded-full bg-[#FA8D1E]" />
-                <span className="h-1.5 w-24 rounded-full bg-[#4169E2]" />
-                <span className="h-1.5 w-12 rounded-full bg-[#22A84A]" />
+              <div>
+                <div>
+                  <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-[#0C1932] leading-tight whitespace-nowrap">
+                    ExpoDeporte<span className="text-[#FA8D1E]"> 2026</span>
+                  </h1>
+                  <p className="mt-2 text-sm sm:text-lg font-bold tracking-wide text-[#0C1932]">
+                    ¡El deporte<span className="text-[#FA8D1E]"> nos mueve!</span>
+                  </p>
+                  <div className="mt-3 flex items-center gap-1.5">
+                    <span className="h-1.5 w-16 rounded-full bg-[#FA8D1E]" />
+                    <span className="h-1.5 w-24 rounded-full bg-[#4169E2]" />
+                    <span className="h-1.5 w-12 rounded-full bg-[#22A84A]" />
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -75,7 +81,7 @@ export function HeroSection({ heroImg }: { heroImg: string }) {
           </div>
 
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-[380px] sm:max-w-[430px] rounded-3xl overflow-hidden shadow-2xl shadow-slate-300/60 border-2 border-[#22A84A]/30 bg-white">
+            <div className="relative w-full max-w-95 sm:max-w-107 rounded-3xl overflow-hidden shadow-2xl shadow-slate-300/60 border-2 border-[#22A84A]/30 bg-white">
               <img
                 src={heroImg}
                 alt="El evento deportivo y comercial más grande de Aragua - Expo Deporte 2026"
