@@ -184,7 +184,7 @@ export default function Page() {
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-stretch">
                 {/* Franela Caminata */}
-                <div className="rounded-[32px] bg-white border border-[#e2e8f0] p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                <div className="rounded-4xl bg-white border border-[#e2e8f0] p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
                   <div>
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold bg-[#22A84A]/10 text-[#22A84A] mb-4">
                       <Shirt className="w-3.5 h-3.5" /> Caminata 5K ($20)
@@ -204,7 +204,7 @@ export default function Page() {
                 </div>
 
                 {/* Camiseta Carrera */}
-                <div className="rounded-[32px] bg-white border border-[#e2e8f0] p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                <div className="rounded-4xl bg-white border border-[#e2e8f0] p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
                   <div>
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold bg-[#FA8D1E]/10 text-[#FA8D1E] mb-4">
                       <Shirt className="w-3.5 h-3.5" /> Carrera 10K ($30)
@@ -224,7 +224,7 @@ export default function Page() {
                 </div>
 
                 {/* Medalla Oficial */}
-                <div className="rounded-[32px] bg-white border border-[#e2e8f0] p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                <div className="rounded-4xl bg-white border border-[#e2e8f0] p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
                   <div>
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold bg-[#CEA554]/15 text-[#CEA554] mb-4">
                       <Medal className="w-3.5 h-3.5" /> Conmemorativa Oficial
@@ -260,14 +260,14 @@ export default function Page() {
                 <img
                   src={assets.plano}
                   alt="Plano General del Recinto Expo Deporte 2026"
-                  className="w-full h-auto max-h-[750px] object-contain rounded-2xl"
+                  className="w-full h-auto max-h-187 object-contain rounded-4xl"
                 />
               </div>
             </section>
 
             {/* SECCIÓN VIDEO OFICIAL */}
             <section className="max-w-7xl mx-auto px-5 sm:px-8 py-8 sm:py-12">
-              <div className="rounded-[36px] overflow-hidden bg-[#0C1932] border-2 border-[#4169E2]/25 shadow-2xl p-6 sm:p-12 relative">
+              <div className="rounded-4xl overflow-hidden bg-[#0C1932] border-2 border-[#4169E2]/25 shadow-2xl p-6 sm:p-12 relative">
                 <div className="max-w-3xl mb-8">
                   <div className="inline-flex items-center gap-2 rounded-full bg-[#FA8D1E]/15 border border-[#FA8D1E]/30 px-3.5 py-1 text-xs font-black uppercase tracking-widest text-[#FA8D1E] mb-3">
                     <Sparkles className="w-3.5 h-3.5" /> Presentación Oficial
@@ -382,12 +382,12 @@ export default function Page() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
-                <div className="rounded-[32px] overflow-hidden bg-white border border-[#e2e8f0] shadow-sm flex flex-col justify-between p-6 sm:p-7 hover:shadow-md transition-shadow">
-                  <div className="rounded-2xl overflow-hidden bg-[#f6f8fb] mb-5 border border-[#e2e8f0]">
+                <div className="rounded-4xl overflow-hidden bg-white border border-[#e2e8f0] shadow-sm flex flex-col justify-between p-6 sm:p-7 hover:shadow-md transition-shadow">
+                  <div className="rounded-4xl overflow-hidden bg-[#f6f8fb] mb-5 border border-[#e2e8f0]">
                     <img
                       src={assets.date}
                       alt="Fechas Oficiales 27, 28 y 29 de Noviembre"
-                      className="w-full h-auto object-contain max-h-[380px] mx-auto block"
+                      className="w-full h-auto object-contain max-h-95 mx-auto block"
                     />
                   </div>
                   <div className="flex items-center justify-between pt-4 border-t border-[#e2e8f0]">
@@ -399,12 +399,12 @@ export default function Page() {
                   </div>
                 </div>
 
-                <div className="rounded-[32px] overflow-hidden bg-white border border-[#e2e8f0] shadow-sm flex flex-col justify-between p-6 sm:p-7 hover:shadow-md transition-shadow">
-                  <div className="rounded-2xl overflow-hidden bg-[#f6f8fb] mb-5 border border-[#e2e8f0]">
+                <div className="rounded-4xl overflow-hidden bg-white border border-[#e2e8f0] shadow-sm flex flex-col justify-between p-6 sm:p-7 hover:shadow-md transition-shadow">
+                  <div className="rounded-4xl overflow-hidden bg-[#f6f8fb] mb-5 border border-[#e2e8f0]">
                     <img
                       src={assets.ubication}
                       alt="Ubicación RedVital Intercomunal Turmero"
-                      className="w-full h-auto object-contain max-h-[380px] mx-auto block"
+                      className="w-full h-auto object-contain max-h-95 mx-auto block"
                     />
                   </div>
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-4 border-t border-[#e2e8f0]">
@@ -426,8 +426,6 @@ export default function Page() {
             </section>
 
             <Footer
-              logoVortice={assets.vortice}
-              logoInademar={assets.inademar}
             />
           </main>
         )}
