@@ -18,7 +18,11 @@ import {
   Music,
   UtensilsCrossed,
   Smile,
-  ShieldCheck
+  ShieldCheck,
+  Shirt,
+  Medal,
+  Compass,
+  Maximize2
 } from 'lucide-react'
 import { useBCVRate } from '@/hooks/useBCVRate'
 import { Header } from '@/components/Header'
@@ -36,11 +40,16 @@ const assets = {
   description: '/description.jpeg',
   info: '/info.jpeg',
   expo: '/logo.jpeg',
-  marino: '/alcaldia.jpg',
   video: '/video.mp4',
+  camisa: '/camisa.jpeg',
+  camiseta: '/camiseta.jpeg',
+  medalla: '/medalla.jpeg',
+  plano: '/plano.jpeg',
+  vortice: '/vortice.jpeg',
+  inademar: '/Inademar.jpeg',
 }
 
-// 12 Módulos oficiales de "+20 Disciplinas en un Solo Lugar" extraídos del Manual
+// 12 Módulos oficiales de "+20 Disciplinas en un Solo Lugar"
 const venueModules = [
   {
     icon: Trophy,
@@ -161,8 +170,104 @@ export default function Page() {
               </div>
             </section>
 
+            {/* SECCIÓN 1: INDUMENTARIA OFICIAL & MEDALLA */}
+            <section id="indumentaria" className="max-w-7xl mx-auto px-5 sm:px-8 py-14 sm:py-20">
+              <div className="text-center max-w-2xl mx-auto mb-12">
+                <span className="text-xs uppercase font-extrabold tracking-widest text-[#FA8D1E]">
+                  Kits Oficiales de Competencia
+                </span>
+                <h2 className="text-2xl sm:text-4xl font-black text-[#0C1932] mt-1 tracking-tight">
+                  Indumentaria & <span className="text-[#22A84A]">Medalla Oficial</span>
+                </h2>
+                <p className="text-xs sm:text-sm text-[#53627a] mt-2">
+                  Diseño exclusivo de alto rendimiento con reflectivo nocturno y medalla conmemorativa entregada en meta.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-stretch">
+                {/* Franela Caminata */}
+                <div className="rounded-4xl bg-white border border-[#e2e8f0] p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                  <div>
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold bg-[#22A84A]/10 text-[#22A84A] mb-4">
+                      <Shirt className="w-3.5 h-3.5" /> Caminata 5K ($20)
+                    </span>
+                    <div className="rounded-2xl overflow-hidden bg-[#f6f8fb] mb-4 aspect-square flex items-center justify-center border border-[#e2e8f0]">
+                      <img
+                        src={assets.camisa}
+                        alt="Franela oficial de la Caminata 5K"
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <h3 className="text-base font-black text-[#0C1932]">Franela con Reflectivo</h3>
+                  </div>
+                  <p className="text-xs text-[#53627a] mt-2 leading-relaxed">
+                    Diseño especial con material reflectivo de alta visibilidad para la caminata familiar nocturna.
+                  </p>
+                </div>
+
+                {/* Camiseta Carrera */}
+                <div className="rounded-4xl bg-white border border-[#e2e8f0] p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                  <div>
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold bg-[#FA8D1E]/10 text-[#FA8D1E] mb-4">
+                      <Shirt className="w-3.5 h-3.5" /> Carrera 10K ($30)
+                    </span>
+                    <div className="rounded-2xl overflow-hidden bg-[#f6f8fb] mb-4 aspect-square flex items-center justify-center border border-[#e2e8f0]">
+                      <img
+                        src={assets.camiseta}
+                        alt="Camiseta oficial de la Carrera 10K"
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <h3 className="text-base font-black text-[#0C1932]">Camiseta Técnica 10K</h3>
+                  </div>
+                  <p className="text-xs text-[#53627a] mt-2 leading-relaxed">
+                    Tejido ultraligero y transpirable de grado competitivo para máxima comodidad en los 10 kilómetros.
+                  </p>
+                </div>
+
+                {/* Medalla Oficial */}
+                <div className="rounded-4xl bg-white border border-[#e2e8f0] p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                  <div>
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold bg-[#CEA554]/15 text-[#CEA554] mb-4">
+                      <Medal className="w-3.5 h-3.5" /> Conmemorativa Oficial
+                    </span>
+                    <div className="rounded-2xl overflow-hidden bg-[#f6f8fb] mb-4 aspect-square flex items-center justify-center border border-[#e2e8f0]">
+                      <img
+                        src={assets.medalla}
+                        alt="Medalla Oficial Expo Deporte 2026"
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <h3 className="text-base font-black text-[#0C1932]">Medalla de Atleta</h3>
+                  </div>
+                  <p className="text-xs text-[#53627a] mt-2 leading-relaxed">
+                    Medalla maciza troquelada con cinta personalizada otorgada al cruzar la línea de meta oficial.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            {/* SECCIÓN PLANO GENERAL DEL RECINTO */}
+            <section id="plano" className="max-w-7xl mx-auto px-5 sm:px-8 py-10 sm:py-16">
+              <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
+                <span className="text-xs uppercase font-extrabold tracking-widest text-[#4169E2]">
+                  Distribución Espacial
+                </span>
+                <h2 className="text-2xl sm:text-4xl font-black text-[#0C1932] mt-1 tracking-tight">
+                  Plano General <span className="text-[#FA8D1E]">del Recinto</span>
+                </h2>
+              </div>
+
+              <div className="w-full flex justify-center">
+                <img
+                  src={assets.plano}
+                  alt="Plano General del Recinto Expo Deporte 2026"
+                  className="w-full h-auto max-h-187 object-contain rounded-4xl"
+                />
+              </div>
+            </section>
             {/* SECCIÓN VIDEO OFICIAL */}
-            <section className="max-w-7xl mx-auto px-5 sm:px-8 py-12 sm:py-16">
+            <section className="max-w-7xl mx-auto px-5 sm:px-8 py-8 sm:py-12">
               <div className="rounded-[36px] overflow-hidden bg-[#0C1932] border-2 border-[#4169E2]/25 shadow-2xl p-6 sm:p-12 relative">
                 <div className="max-w-3xl mb-8">
                   <div className="inline-flex items-center gap-2 rounded-full bg-[#FA8D1E]/15 border border-[#FA8D1E]/30 px-3.5 py-1 text-xs font-black uppercase tracking-widest text-[#FA8D1E] mb-3">
@@ -322,7 +427,7 @@ export default function Page() {
               </div>
             </section>
 
-            <Footer logo={assets.marino} />
+            <Footer/>
           </main>
         )}
       </div>

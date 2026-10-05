@@ -18,7 +18,7 @@ const SocialIcons = {
   ),
 }
 
-export function Footer({ logo = 'alcaldia.jpg' }: { logo?: string }) {
+export function Footer({ logo = 'vortice.jpeg' }: { logo?: string }) {
   return (
     <footer>
       <img src={logo} alt="Alcaldía Bolivariana de Santiago Mariño" />
