@@ -21,7 +21,7 @@ const paidActivities = [
         subtitle: 'Evento Central con Premiación',
         desc: 'Premiación en metálico ($500 1er, $300 2do, $200 3ro, $100 4to/5to).',
         kit: 'Medalla, franela, número, hidratación, logística y seguridad.',
-        price: 25,
+        price: 30,
         tagColor: 'orange',
     },
     {
@@ -30,7 +30,7 @@ const paidActivities = [
         subtitle: 'Evento Central Recreativo',
         desc: 'Caminata nocturna sin premiación pensada para toda la familia.',
         kit: 'Franela, bandana con linterna, hidratación, logística y seguridad.',
-        price: 15,
+        price: 20,
         tagColor: 'emerald',
     },
 ]
