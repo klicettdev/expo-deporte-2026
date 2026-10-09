@@ -30,8 +30,8 @@ export function Header({ section, setSection, mobileOpen, setMobileOpen, expoLog
           />
 
           <div className="hidden leading-tight md:block border-l-2 border-[#e2e8f0] pl-3.5">
-            <span className="block text-[11px] font-black uppercase tracking-[0.25em] text-[#FA8D1E]">
-              Expo Deporte
+            <span className="block text-base lg:text-lg font-black uppercase tracking-wider text-[#FA8D1E]">
+              Expo Deporte 2026
             </span>
             <span className="text-xs font-bold text-[#0C1932]">
               INADEMAR · Aragua
@@ -55,8 +55,11 @@ export function Header({ section, setSection, mobileOpen, setMobileOpen, expoLog
           <a href="#cronograma" className="text-[#53627a] hover:text-[#0C1932] transition-colors">
             Cronograma
           </a>
-          <a href="#ubicacion" className="text-[#53627a] hover:text-[#0C1932] transition-colors">
-            Ubicación
+          <a href="#pagos" className="text-[#53627a] hover:text-[#0C1932] transition-colors">
+            Cuentas
+          </a>
+          <a href="#patrocinador" className="text-[#53627a] hover:text-[#0C1932] transition-colors">
+            Patrocinante
           </a>
           <a href="#inscripcion" className="text-[#53627a] hover:text-[#0C1932] transition-colors">
             Inscripción
@@ -92,8 +95,11 @@ export function Header({ section, setSection, mobileOpen, setMobileOpen, expoLog
             <a href="#cronograma" onClick={() => setMobileOpen(false)} className="text-[#53627a] hover:text-[#FA8D1E]">
               Cronograma
             </a>
-            <a href="#ubicacion" onClick={() => setMobileOpen(false)} className="text-[#53627a] hover:text-[#FA8D1E]">
-              Ubicación
+            <a href="#pagos" onClick={() => setMobileOpen(false)} className="text-[#53627a] hover:text-[#FA8D1E]">
+              Cuentas de Pago
+            </a>
+            <a href="#patrocinador" onClick={() => setMobileOpen(false)} className="text-[#53627a] hover:text-[#FA8D1E]">
+              Patrocinante Oficial
             </a>
             <a href="#inscripcion" onClick={() => setMobileOpen(false)} className="text-[#53627a] hover:text-[#FA8D1E]">
               Inscripción

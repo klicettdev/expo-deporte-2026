@@ -21,7 +21,11 @@ import {
   ShieldCheck,
   Shirt,
   Medal,
-  Compass
+  CreditCard,
+  Smartphone,
+  Building2,
+  Copy,
+  Check
 } from 'lucide-react'
 import { useBCVRate } from '@/hooks/useBCVRate'
 import { Header } from '@/components/Header'
@@ -139,8 +143,15 @@ export default function Page() {
   const [section, setSection] = useState<'home' | 'admin'>('home')
   const [mobileOpen, setMobileOpen] = useState(false)
   const [selectedActivity, setSelectedActivity] = useState(paidActivities[0].name)
+  const [copiedField, setCopiedField] = useState<string | null>(null)
 
   const { rate, loading: rateLoading } = useBCVRate()
+
+  const copyToClipboard = (text: string, field: string) => {
+    navigator.clipboard.writeText(text)
+    setCopiedField(field)
+    setTimeout(() => setCopiedField(null), 2000)
+  }
 
   return (
     <div className="relative min-h-screen bg-[#f6f8fb] text-[#0C1932]">
@@ -184,7 +195,7 @@ export default function Page() {
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-stretch">
                 {/* Franela Caminata */}
-                <div className="rounded-4xl bg-white border border-[#e2e8f0] p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                <div className="rounded-3xl bg-white border border-[#e2e8f0] p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
                   <div>
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold bg-[#22A84A]/10 text-[#22A84A] mb-4">
                       <Shirt className="w-3.5 h-3.5" /> Caminata 5K ($20)
@@ -204,7 +215,7 @@ export default function Page() {
                 </div>
 
                 {/* Camiseta Carrera */}
-                <div className="rounded-4xl bg-white border border-[#e2e8f0] p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                <div className="rounded-3xl bg-white border border-[#e2e8f0] p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
                   <div>
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold bg-[#FA8D1E]/10 text-[#FA8D1E] mb-4">
                       <Shirt className="w-3.5 h-3.5" /> Carrera 10K ($30)
@@ -224,7 +235,7 @@ export default function Page() {
                 </div>
 
                 {/* Medalla Oficial */}
-                <div className="rounded-4xl bg-white border border-[#e2e8f0] p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                <div className="rounded-3xl bg-white border border-[#e2e8f0] p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
                   <div>
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold bg-[#CEA554]/15 text-[#CEA554] mb-4">
                       <Medal className="w-3.5 h-3.5" /> Conmemorativa Oficial
@@ -260,14 +271,14 @@ export default function Page() {
                 <img
                   src={assets.plano}
                   alt="Plano General del Recinto Expo Deporte 2026"
-                  className="w-full h-auto max-h-187 object-contain rounded-4xl"
+                  className="w-full h-auto max-h-107 object-contain rounded-3xl"
                 />
               </div>
             </section>
 
             {/* SECCIÓN VIDEO OFICIAL */}
             <section className="max-w-7xl mx-auto px-5 sm:px-8 py-8 sm:py-12">
-              <div className="rounded-4xl overflow-hidden bg-[#0C1932] border-2 border-[#4169E2]/25 shadow-2xl p-6 sm:p-12 relative">
+              <div className="rounded-[36px] overflow-hidden bg-[#0C1932] border-2 border-[#4169E2]/25 shadow-2xl p-6 sm:p-12 relative">
                 <div className="max-w-3xl mb-8">
                   <div className="inline-flex items-center gap-2 rounded-full bg-[#FA8D1E]/15 border border-[#FA8D1E]/30 px-3.5 py-1 text-xs font-black uppercase tracking-widest text-[#FA8D1E] mb-3">
                     <Sparkles className="w-3.5 h-3.5" /> Presentación Oficial
@@ -359,6 +370,153 @@ export default function Page() {
               </div>
             </section>
 
+            {/* SECCIÓN DATOS BANCARIOS */}
+            <section id="pagos" className="max-w-7xl mx-auto px-5 sm:px-8 py-12 sm:py-16">
+              <div className="rounded-[36px] bg-white border border-[#e2e8f0] p-6 sm:p-12 shadow-sm">
+                <div className="text-center max-w-2xl mx-auto mb-10">
+                  <span className="text-xs uppercase font-extrabold tracking-widest text-[#4169E2]">
+                    Cuentas Oficiales de Inscripción
+                  </span>
+                  <h2 className="text-2xl sm:text-4xl font-black text-[#0C1932] mt-1 tracking-tight">
+                    Datos Bancarios & <span className="text-[#FA8D1E]">Pago Móvil</span>
+                  </h2>
+                  <p className="text-xs sm:text-sm text-[#53627a] mt-2">
+                    Realiza tu pago en Bolívares a la tasa oficial BCV y adjunta el número de referencia en el formulario de inscripción.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
+                  {/* Tarjeta Transferencia Bancaria */}
+                  <div className="rounded-3xl border border-[#e2e8f0] bg-[#f6f8fb]/70 p-6 flex flex-col justify-between shadow-xs">
+                    <div>
+                      <div className="flex items-center gap-3 mb-5">
+                        <div className="w-12 h-12 rounded-2xl bg-[#4169E2]/10 border border-[#4169E2]/20 flex items-center justify-center text-[#4169E2]">
+                          <Building2 className="w-6 h-6" />
+                        </div>
+                        <div>
+                          <span className="text-[11px] font-extrabold uppercase text-[#4169E2] tracking-wider">Transferencia Bancaria</span>
+                          <h3 className="text-lg font-black text-[#0C1932]">Banco de Venezuela</h3>
+                        </div>
+                      </div>
+
+                      <div className="space-y-3.5 text-xs sm:text-sm">
+                        <div className="flex items-center justify-between pb-2 border-b border-[#e2e8f0]">
+                          <span className="text-[#53627a] font-medium">Titular:</span>
+                          <strong className="text-[#0C1932] font-black text-right">Omar Enrique Escobar Moreno</strong>
+                        </div>
+
+                        <div className="flex items-center justify-between pb-2 border-b border-[#e2e8f0]">
+                          <span className="text-[#53627a] font-medium">Cédula:</span>
+                          <button
+                            onClick={() => copyToClipboard('18851481', 'cedula')}
+                            className="inline-flex items-center gap-1.5 font-black text-[#0C1932] hover:text-[#FA8D1E] cursor-pointer"
+                          >
+                            <span>V-18.851.481</span>
+                            {copiedField === 'cedula' ? <Check className="w-3.5 h-3.5 text-[#22A84A]" /> : <Copy className="w-3.5 h-3.5 text-slate-400" />}
+                          </button>
+                        </div>
+
+                        <div>
+                          <span className="text-[#53627a] font-medium block mb-1">Número de Cuenta (20 dígitos):</span>
+                          <div className="flex items-center justify-between bg-white border border-[#e2e8f0] rounded-xl px-3 py-2">
+                            <span className="font-mono font-bold text-xs sm:text-sm text-[#0C1932] tracking-wider select-all">
+                              0102 0117 98 0000139007
+                            </span>
+                            <button
+                              onClick={() => copyToClipboard('01020117980000139007', 'cuenta')}
+                              className="text-[#4169E2] hover:text-[#3151b5] p-1 cursor-pointer"
+                              title="Copiar número de cuenta"
+                            >
+                              {copiedField === 'cuenta' ? <Check className="w-4 h-4 text-[#22A84A]" /> : <Copy className="w-4 h-4" />}
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Tarjeta Pago Móvil */}
+                  <div className="rounded-3xl border border-[#e2e8f0] bg-[#f6f8fb]/70 p-6 flex flex-col justify-between shadow-xs">
+                    <div>
+                      <div className="flex items-center gap-3 mb-5">
+                        <div className="w-12 h-12 rounded-2xl bg-[#22A84A]/10 border border-[#22A84A]/20 flex items-center justify-center text-[#22A84A]">
+                          <Smartphone className="w-6 h-6" />
+                        </div>
+                        <div>
+                          <span className="text-[11px] font-extrabold uppercase text-[#22A84A] tracking-wider">Pago Inmediato</span>
+                          <h3 className="text-lg font-black text-[#0C1932]">Pago Móvil BDV</h3>
+                        </div>
+                      </div>
+
+                      <div className="space-y-3.5 text-xs sm:text-sm">
+                        <div className="flex items-center justify-between pb-2 border-b border-[#e2e8f0]">
+                          <span className="text-[#53627a] font-medium">Banco:</span>
+                          <strong className="text-[#0C1932] font-black">Banco de Venezuela (0102)</strong>
+                        </div>
+
+                        <div className="flex items-center justify-between pb-2 border-b border-[#e2e8f0]">
+                          <span className="text-[#53627a] font-medium">Cédula:</span>
+                          <button
+                            onClick={() => copyToClipboard('18851481', 'pm_cedula')}
+                            className="inline-flex items-center gap-1.5 font-black text-[#0C1932] hover:text-[#FA8D1E] cursor-pointer"
+                          >
+                            <span>V-18.851.481</span>
+                            {copiedField === 'pm_cedula' ? <Check className="w-3.5 h-3.5 text-[#22A84A]" /> : <Copy className="w-3.5 h-3.5 text-slate-400" />}
+                          </button>
+                        </div>
+
+                        <div className="flex items-center justify-between pb-2 border-b border-[#e2e8f0]">
+                          <span className="text-[#53627a] font-medium">Teléfono:</span>
+                          <button
+                            onClick={() => copyToClipboard('04243712106', 'pm_tlf')}
+                            className="inline-flex items-center gap-1.5 font-black text-[#0C1932] hover:text-[#22A84A] cursor-pointer"
+                          >
+                            <span className="font-mono">0424-3712106</span>
+                            {copiedField === 'pm_tlf' ? <Check className="w-3.5 h-3.5 text-[#22A84A]" /> : <Copy className="w-3.5 h-3.5 text-slate-400" />}
+                          </button>
+                        </div>
+
+                        <div className="pt-1">
+                          <span className="text-[11px] text-[#53627a] italic">
+                            * Guarda el capture o código de referencia de 4 a 8 dígitos para finalizar tu registro abajo.
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* SECCIÓN PATROCINANTE OFICIAL: PROYECTO VÓRTICE */}
+            <section id="patrocinador" className="max-w-7xl mx-auto px-5 sm:px-8 py-10 sm:py-14">
+              <div className="rounded-[36px] bg-[#0C1932] text-white p-8 sm:p-14 border-2 border-[#FA8D1E]/20 shadow-xl relative overflow-hidden">
+                <div className="absolute top-0 right-0 -mt-10 -mr-10 w-60 h-60 rounded-full bg-[#FA8D1E]/10 blur-3xl pointer-events-none" />
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center relative z-10">
+                  <div className="md:col-span-8 space-y-4">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-[#FA8D1E]/15 text-[#FA8D1E] border border-[#FA8D1E]/30">
+                      <Sparkles className="w-3.5 h-3.5" /> Patrocinante Oficial
+                    </span>
+                    <h2 className="text-2xl sm:text-4xl font-black tracking-tight text-white">
+                      Impulsado por <span className="text-[#FA8D1E]">Proyecto Vórtice, C.A.</span>
+                    </h2>
+                    <p className="text-xs sm:text-sm text-slate-300 max-w-2xl leading-relaxed">
+                      Comprometidos con el desarrollo integral del deporte y la masificación del talento atlético en el estado Aragua. Aliados estratégicos en la producción logística y competitiva de la Expo Deporte 2026.
+                    </p>
+                  </div>
+                  <div className="md:col-span-4 flex justify-center md:justify-end">
+                    <div className="bg-white/10 backdrop-blur-md p-6 rounded-3xl border border-white/15 flex items-center justify-center hover:scale-105 transition-transform duration-300 shadow-2xl">
+                      <img
+                        src={assets.vortice}
+                        alt="Proyecto Vórtice, C.A."
+                        className="max-h-24 sm:max-h-28 w-auto object-contain drop-shadow"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
             {/* FORMULARIO DE INSCRIPCIÓN */}
             <RegistrationForm
               selected={selectedActivity}
@@ -382,8 +540,8 @@ export default function Page() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
-                <div className="rounded-4xl overflow-hidden bg-white border border-[#e2e8f0] shadow-sm flex flex-col justify-between p-6 sm:p-7 hover:shadow-md transition-shadow">
-                  <div className="rounded-4xl overflow-hidden bg-[#f6f8fb] mb-5 border border-[#e2e8f0]">
+                <div className="rounded-3xl overflow-hidden bg-white border border-[#e2e8f0] shadow-sm flex flex-col justify-between p-6 sm:p-7 hover:shadow-md transition-shadow">
+                  <div className="rounded-2xl overflow-hidden bg-[#f6f8fb] mb-5 border border-[#e2e8f0]">
                     <img
                       src={assets.date}
                       alt="Fechas Oficiales 27, 28 y 29 de Noviembre"
@@ -399,8 +557,8 @@ export default function Page() {
                   </div>
                 </div>
 
-                <div className="rounded-4xl overflow-hidden bg-white border border-[#e2e8f0] shadow-sm flex flex-col justify-between p-6 sm:p-7 hover:shadow-md transition-shadow">
-                  <div className="rounded-4xl overflow-hidden bg-[#f6f8fb] mb-5 border border-[#e2e8f0]">
+                <div className="rounded-3xl overflow-hidden bg-white border border-[#e2e8f0] shadow-sm flex flex-col justify-between p-6 sm:p-7 hover:shadow-md transition-shadow">
+                  <div className="rounded-2xl overflow-hidden bg-[#f6f8fb] mb-5 border border-[#e2e8f0]">
                     <img
                       src={assets.ubication}
                       alt="Ubicación RedVital Intercomunal Turmero"
@@ -425,8 +583,7 @@ export default function Page() {
               </div>
             </section>
 
-            <Footer
-            />
+            <Footer />
           </main>
         )}
       </div>
